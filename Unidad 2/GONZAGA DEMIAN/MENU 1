@@ -1,0 +1,69 @@
+#include <stdio.h>
+
+int main() {
+    // Declaracion de variables
+    int opcion, n, i, j;
+    int a, b, c;
+
+    // Datos del estudiante
+    printf("NOMBRE: Demian Gonzaga\n");
+    printf("NRC: 36460\n");
+
+    do {
+        // Mostrar menu
+        printf("\n--- MENU ---\n");
+        printf("1. Dibujar cuadrado hueco\n");
+        printf("2. Secuencia de Fibonacci\n");
+        printf("3. Salir\n");
+        printf("Elige una opcion: ");
+        scanf("%d", &opcion);
+
+        if (opcion == 1) {
+            printf("Ingresa el porte del cuadrado: ");
+            scanf("%d", &n);
+
+            if (n > 0) {
+                // Ciclos para dibujar el cuadrado
+                for (i = 0; i < n; i++) {
+                    for (j = 0; j < n; j++) {
+                        if (i == 0 || i == n - 1 || j == 0 || j == n - 1) {
+                            printf("* ");
+                        } else {
+                            printf("  ");
+                        }
+                    }
+                    printf("\n");
+                }
+            } else {
+                printf("El numero debe ser mayor a 0\n");
+            }
+
+        } else if (opcion == 2) {
+            printf("Cuantos terminos quieres ver: ");
+            scanf("%d", &n);
+
+            if (n > 0) {
+                a = 0;
+                b = 1;
+                printf("Serie de Fibonacci: ");
+                for (i = 1; i <= n; i++) {
+                    printf("%d ", a);
+                    c = a + b;
+                    a = b;
+                    b = c;
+                }
+                printf("\n");
+            } else {
+                printf("Ingresa un numero positivo\n");
+            }
+
+        } else if (opcion == 3) {
+            printf("Saliendo del programa...\n");
+        } else {
+            printf("Opcion no valida, intenta de nuevo\n");
+        }
+
+    } while (opcion != 3);
+
+    return 0;
+}
