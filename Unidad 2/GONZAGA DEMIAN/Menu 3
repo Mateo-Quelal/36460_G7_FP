@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int opcion;
+    int anio, mes, dia, maxDias;
+
+    do {
+        system("cls");
+        printf("MENU 3\n");
+        printf("1. Validar fecha\n");
+        printf("2. Desplegar serie letras\n");
+        printf("3. Desplegar serie numero\n");
+        printf("4. Salir\n");
+        printf("Ingrese opcion: ");
+        scanf("%d", &opcion);
+
+        switch (opcion) {
+            case 1:
+                do {
+                    printf("\nIngrese el anio (1900 - 2015): ");
+                    scanf("%d", &anio);
+                } while (anio < 1900 || anio > 2015);
+
+                do {
+                    printf("Ingrese el mes (1 - 12): ");
+                    scanf("%d", &mes);
+                } while (mes < 1 || mes > 12);
+
+
+                if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+                    maxDias = 30;
+                } else if (mes == 2) {
+                    maxDias = 29;
+                } else {
+                    maxDias = 31;
+                }
+
+
+                do {
+                    printf("Ingrese el dia (1 - %d): ", maxDias);
+                    scanf("%d", &dia);
+                } while (dia < 1 || dia > maxDias);
+
+                printf("\nFecha valida: %d de ", dia);
+                switch (mes) {
+                    case 1:  printf("Enero"); break;
+                    case 2:  printf("Febrero"); break;
+                    case 3:  printf("Marzo"); break;
+                    case 4:  printf("Abril"); break;
+                    case 5:  printf("Mayo"); break;
+                    case 6:  printf("Junio"); break;
+                    case 7:  printf("Julio"); break;
+                    case 8:  printf("Agosto"); break;
+                    case 9:  printf("Septiembre"); break;
+                    case 10: printf("Octubre"); break;
+                    case 11: printf("Noviembre"); break;
+                    case 12: printf("Diciembre"); break;
+                }
+                printf(" de %d\n", anio);
+                break;
+
+            case 2:
+                printf("\n[Ejecutando Desplegar serie letras...]\n");
+                break;
+            case 3:
+                printf("\n[Ejecutando Desplegar serie numero...]\n");
+                break;
+            case 4:
+                printf("\nSaliendo del programa...\n");
+                break;
+            default:
+                printf("\nOpcion no valida\n");
+                break;
+        }
+
+        if (opcion != 4) {
+            printf("\n");
+            system("pause");
+        }
+
+    } while (opcion != 4);
+
+    return 0;
+}
